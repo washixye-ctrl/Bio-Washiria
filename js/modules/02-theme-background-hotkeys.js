@@ -3,7 +3,7 @@ const THEME_LIST = [
   'Carthethyia.mp4',
   'Hiyuki.mp4',
   'Kurumi.mp4',
-  'Roxy.mp4',
+  'Asta.mp4',
   'Sandrone.mp4'
 ];
 const THEME_CLIPS = {
