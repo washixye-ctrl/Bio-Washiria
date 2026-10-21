@@ -4,28 +4,7 @@
       "id": "videos",
       "title": "Clips & Videos",
       "description": "คลิปและวิดีโอ",
-      "items": [
-        {
-          "src": "assets/videos/Carthethyia.mp4",
-          "title": "Carthethyia"
-        },
-        {
-          "src": "assets/videos/Hiyuki.mp4",
-          "title": "Hiyuki"
-        },
-        {
-          "src": "assets/videos/Kurumi.mp4",
-          "title": "Kurumi"
-        },
-        {
-          "src": "assets/videos/Roxy.mp4",
-          "title": "Roxy"
-        },
-        {
-          "src": "assets/videos/Sandrone.mp4",
-          "title": "Sandrone"
-        }
-      ]
+      "items": []
     },
     {
       "id": "games",
@@ -33,8 +12,28 @@
       "description": "ภาพจากเกม",
       "items": [
         {
-          "src": "images/game-1.png",
-          "title": "Game 1"
+          "src": "games/R1.jpg",
+          "title": "Rov"
+        },
+        {
+          "src": "games/R2.jpg",
+          "title": "Rov"
+        },
+        {
+          "src": "games/R3.jpg",
+          "title": "Rov"
+        },
+        {
+          "src": "games/R4.jpg",
+          "title": "Rov"
+        },
+        {
+          "src": "games/R5.jpg",
+          "title": "Rov"
+        },
+        {
+          "src": "games/R6.jpg",
+          "title": "Rov"
         }
       ]
     },
@@ -48,12 +47,7 @@
       "id": "extra",
       "title": "Partner & Scenes",
       "description": "ผลงานและภาพบรรยากาศ",
-      "items": [
-        {
-          "src": "images/work-lightcity.png",
-          "title": "Light City"
-        }
-      ]
+      "items": []
     }
   ]
 }
