@@ -35,3 +35,68 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* ── Washi · floating glass tags ───────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 11px 12px;
+  padding: 4px 2px 8px;
+}
+
+.tags .tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 7px 15px;
+  margin: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(139, 207, 255, .13), rgba(191, 156, 255, .16) 55%, rgba(255, 181, 222, .12));
+  border: 1px solid rgba(210, 220, 255, .23);
+  box-shadow: 0 3px 12px rgba(67, 54, 130, .08), inset 0 1px 0 rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: transform .45s cubic-bezier(.2,.75,.25,1), background .35s ease,
+    border-color .35s ease, box-shadow .4s ease, color .3s ease;
+  will-change: translate;
+}
+
+.tags .tag:hover {
+  translate: 0 -4px;
+  transform: scale(1.035);
+  background: linear-gradient(135deg, rgba(139, 207, 255, .24), rgba(191, 156, 255, .27) 55%, rgba(255, 181, 222, .22));
+  border-color: rgba(220, 230, 255, .48);
+  box-shadow: 0 8px 22px rgba(111, 104, 202, .18), inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+.section.is-inview .tags .tag {
+  animation: tagFloatSoft 4.2s ease-in-out infinite;
+  animation-delay: calc(var(--tag-index, 0) * -0.55s);
+}
+.section.is-inview .tags .tag:nth-child(1) { --tag-index: 0; }
+.section.is-inview .tags .tag:nth-child(2) { --tag-index: 1; }
+.section.is-inview .tags .tag:nth-child(3) { --tag-index: 2; }
+.section.is-inview .tags .tag:nth-child(4) { --tag-index: 3; }
+.section.is-inview .tags .tag:nth-child(5) { --tag-index: 4; }
+.section.is-inview .tags .tag:nth-child(6) { --tag-index: 5; }
+
+@keyframes tagFloatSoft {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -2.5px; }
+}
+
+@media (max-width: 480px) {
+  .tags { gap: 9px 10px; }
+  .tags .tag { padding: 7px 12px; font-size: .7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section.is-inview .tags .tag { animation: none !important; }
+  .tags .tag { transition-duration: .01ms; }
+}
