@@ -12,6 +12,10 @@
       "description": "ภาพจากเกม",
       "items": [
         {
+          "src": "albums/games/R0.jpg",
+          "title": "Rov"
+        },
+        {
           "src": "albums/games/R1.jpg",
           "title": "Rov"
         },
