@@ -1,0 +1,289 @@
+/* =========================================================
+   theme-aegir — cyan tide · aqua glow · luminous silk
+   Bio: fluid, organic curves, teal pulse, wave motion
+   ========================================================= */
+body.theme-aegir {
+  --accent: #20a8b8;
+  --accent-2: #a0f0e8;
+  --glow: rgba(32, 168, 184, 0.35);
+}
+
+body.theme-aegir .video-bg .bg-layer {
+  filter: brightness(0.4) contrast(1.1) saturate(1.25) hue-rotate(12deg);
+}
+body.theme-aegir .overlay {
+  background:
+    radial-gradient(ellipse 90% 55% at 30% 80%, rgba(20, 140, 160, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(40, 200, 190, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at center, rgba(2, 12, 16, 0.2) 0%, rgba(1, 8, 12, 0.93) 100%);
+}
+body.theme-aegir .noise { opacity: 0.025; }
+body.theme-aegir .light-bloom {
+  background: radial-gradient(ellipse, rgba(40, 200, 190, 0.18) 0%, transparent 70%);
+}
+body.theme-aegir .orb-1 {
+  background: #20c8c0;
+  opacity: 0.3;
+  animation: aegirOrb 10s ease-in-out infinite;
+}
+body.theme-aegir .orb-2 {
+  background: #108090;
+  opacity: 0.22;
+  animation: aegirOrb 13s ease-in-out infinite reverse;
+}
+@keyframes aegirOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -15px) scale(1.1); }
+  66% { transform: translate(-15px, 10px) scale(0.95); }
+}
+
+body.theme-aegir .scroll-progress {
+  background: linear-gradient(90deg, transparent, #20a8b8, #a0f0e8);
+  box-shadow: 0 0 16px rgba(32, 168, 184, 0.4);
+}
+body.theme-aegir .navbar.is-scrolled {
+  background: rgba(2, 12, 16, 0.88);
+  border-bottom-color: rgba(40, 180, 190, 0.14);
+}
+body.theme-aegir .nav-indicator {
+  background: linear-gradient(90deg, #108090, #a0f0e8);
+}
+
+body.theme-aegir .section-about .card {
+  background: linear-gradient(170deg, rgba(6, 24, 28, 0.88) 0%, rgba(2, 14, 18, 0.86) 100%);
+  border: 1px solid rgba(40, 190, 200, 0.25);
+  border-radius: 40px;
+  box-shadow:
+    0 1px 0 rgba(160, 240, 230, 0.06) inset,
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(20, 140, 160, 0.1);
+  animation: aegirCardIn 1s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+  position: relative;
+  overflow: hidden;
+}
+@keyframes aegirCardIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.92); border-radius: 60px; }
+  to { opacity: 1; transform: translateY(0) scale(1); border-radius: 40px; }
+}
+body.theme-aegir .section-about .card::before {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -20%;
+  width: 140%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(40, 200, 190, 0.08) 0%, transparent 60%);
+  animation: aegirWave 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes aegirWave {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  50% { transform: translateY(-12%) scaleY(1.08); }
+}
+
+body.theme-aegir .card-flip:hover .card {
+  border-color: rgba(80, 230, 220, 0.45);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55), 0 0 60px rgba(30, 180, 190, 0.22);
+}
+
+body.theme-aegir .avatar {
+  border-radius: 50%;
+  border-color: rgba(80, 220, 210, 0.6);
+  box-shadow: 0 0 0 5px rgba(30, 160, 170, 0.12), 0 0 40px rgba(40, 200, 190, 0.35);
+}
+body.theme-aegir .avatar-wrap {
+  animation: aegirBob 4.5s ease-in-out infinite;
+}
+@keyframes aegirBob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-9px) scale(1.02); }
+}
+body.theme-aegir .status-dot {
+  background: #40e8d8;
+  box-shadow: 0 0 14px rgba(64, 232, 216, 0.75);
+  animation: aegirPulse 2.4s ease-in-out infinite;
+}
+@keyframes aegirPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(64, 232, 216, 0.4); }
+  50% { transform: scale(1.15); box-shadow: 0 0 20px rgba(64, 232, 216, 0.85); }
+}
+
+body.theme-aegir .name {
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.04em;
+}
+body.theme-aegir .handle { color: rgba(120, 220, 210, 0.7); }
+body.theme-aegir .bio { color: rgba(180, 240, 235, 0.55); }
+
+body.theme-aegir .tag {
+  border-radius: 999px;
+  background: rgba(20, 140, 150, 0.16);
+  border-color: rgba(50, 200, 190, 0.3);
+  color: #90e8e0;
+}
+body.theme-aegir .tag:hover {
+  background: rgba(30, 180, 175, 0.3);
+  box-shadow: 0 0 20px rgba(40, 200, 190, 0.25);
+  transform: translateY(-2px) scale(1.04);
+}
+body.theme-aegir .section.is-inview .tag {
+  animation: aegirTagPop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+@keyframes aegirTagPop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+body.theme-aegir .social-btn {
+  border-radius: 50%;
+  background: rgba(30, 160, 170, 0.1);
+  border-color: rgba(50, 200, 190, 0.22);
+}
+body.theme-aegir .social-btn:hover {
+  background: rgba(40, 190, 185, 0.3);
+  border-color: rgba(100, 240, 230, 0.5);
+  box-shadow: 0 8px 24px rgba(20, 150, 160, 0.3);
+  transform: translateY(-4px) scale(1.08);
+}
+
+body.theme-aegir .projects-title,
+body.theme-aegir .chars-title {
+  -webkit-text-fill-color: transparent;
+}
+body.theme-aegir .project-card {
+  border-radius: 24px;
+  border-color: rgba(40, 180, 190, 0.18);
+}
+body.theme-aegir .project-card:hover {
+  border-color: rgba(70, 220, 210, 0.4);
+  box-shadow: 0 18px 44px rgba(10, 100, 110, 0.28);
+}
+body.theme-aegir .char-preview { border-radius: 20px; }
+body.theme-aegir .chars-open-btn {
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(30, 160, 170, 0.3), rgba(20, 120, 130, 0.18));
+  border-color: rgba(50, 200, 190, 0.4);
+}
+body.theme-aegir .player-fill {
+  background: linear-gradient(90deg, #108090, #20a8b8, #a0f0e8);
+}
+body.theme-aegir .particle { background: rgba(100, 230, 220, 0.55); }
+
+/* ===== Ambient animations · aegir tide ===== */
+body.theme-aegir .particle {
+  animation-name: aegirParticleDrift;
+  background: rgba(80, 230, 220, 0.55);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(40, 200, 190, 0.45);
+}
+@keyframes aegirParticleDrift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  12% { opacity: 0.7; }
+  40% { transform: translateY(-40vh) translateX(20px) scale(1.1); }
+  70% { transform: translateY(-75vh) translateX(-15px) scale(0.7); opacity: 0.4; }
+  100% { transform: translateY(-110vh) translateX(10px) scale(0.2); opacity: 0; }
+}
+
+body.theme-aegir .section-about {
+  animation: aegirBreathe 6s ease-in-out infinite;
+}
+@keyframes aegirBreathe {
+  0%, 100% { filter: saturate(1); }
+  50% { filter: saturate(1.15); }
+}
+
+body.theme-aegir .projects-title::after,
+body.theme-aegir .chars-title::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  margin: 12px auto 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, #20a8b8, #a0f0e8, #20a8b8, transparent);
+  transition: width 0.9s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+body.theme-aegir .section.is-inview .projects-title::after,
+body.theme-aegir .section.is-inview .chars-title::after {
+  width: 68%;
+  animation: aegirLineWave 2.8s ease-in-out infinite 0.9s;
+}
+@keyframes aegirLineWave {
+  0%, 100% { opacity: 0.6; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.06); }
+}
+
+body.theme-aegir .section.is-inview .project-card {
+  animation: aegirProjectIn 0.7s cubic-bezier(0.34, 1.3, 0.64, 1) both;
+}
+body.theme-aegir .section.is-inview .project-card:nth-child(1) { animation-delay: 0.1s; }
+body.theme-aegir .section.is-inview .project-card:nth-child(2) { animation-delay: 0.2s; }
+body.theme-aegir .section.is-inview .project-card:nth-child(3) { animation-delay: 0.3s; }
+@keyframes aegirProjectIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.9); border-radius: 40px; }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+body.theme-aegir .section.is-inview .char-preview {
+  animation: aegirCharIn 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+body.theme-aegir .section.is-inview .char-preview:nth-child(1) { animation-delay: 0.05s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(2) { animation-delay: 0.1s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(3) { animation-delay: 0.15s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(4) { animation-delay: 0.2s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(5) { animation-delay: 0.25s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(6) { animation-delay: 0.3s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(7) { animation-delay: 0.35s; }
+body.theme-aegir .section.is-inview .char-preview:nth-child(8) { animation-delay: 0.4s; }
+@keyframes aegirCharIn {
+  from { opacity: 0; transform: scale(0.7) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+body.theme-aegir .section.is-inview .social-btn {
+  animation: aegirSocialIn 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+body.theme-aegir .section.is-inview .social-btn:nth-child(1) { animation-delay: 0.3s; }
+body.theme-aegir .section.is-inview .social-btn:nth-child(2) { animation-delay: 0.36s; }
+body.theme-aegir .section.is-inview .social-btn:nth-child(3) { animation-delay: 0.42s; }
+body.theme-aegir .section.is-inview .social-btn:nth-child(4) { animation-delay: 0.48s; }
+body.theme-aegir .section.is-inview .social-btn:nth-child(5) { animation-delay: 0.54s; }
+@keyframes aegirSocialIn {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+body.theme-aegir .nav-glow.is-visible {
+  background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(30, 180, 175, 0.4) 0%, transparent 70%);
+  animation: aegirNavWave 4s ease-in-out infinite;
+}
+@keyframes aegirNavWave {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+body.theme-aegir .player.is-playing .player-cover {
+  animation: aegirCoverBob 3s ease-in-out infinite;
+  box-shadow: 0 0 18px rgba(40, 200, 190, 0.4);
+}
+@keyframes aegirCoverBob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.04); }
+}
+
+/* running text · aqua cyan */
+body.theme-aegir .intro-name,
+body.theme-aegir .name,
+body.theme-aegir .projects-title,
+body.theme-aegir .chars-title,
+body.theme-aegir .loader-name .ln {
+  background-image: linear-gradient(
+    90deg,
+    #e8fffc 0%,
+    #60e0d0 22%,
+    #20a8b8 45%,
+    #a0f0e8 70%,
+    #e8fffc 100%
+  );
+}

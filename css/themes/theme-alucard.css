@@ -1,0 +1,310 @@
+/* =========================================================
+   theme-alucard — blood void · pure black · crimson · gothic
+   Bio: dramatic, tall spacing, blood drip accent, slow fade
+   ========================================================= */
+body.theme-alucard {
+  --accent: #b02030;
+  --accent-2: #f0a0a8;
+  --glow: rgba(176, 32, 48, 0.4);
+}
+
+body.theme-alucard .video-bg .bg-layer {
+  filter: brightness(0.42) contrast(1.28) saturate(1.05);
+}
+body.theme-alucard .overlay {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(120, 10, 20, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at center, rgba(6, 0, 4, 0.15) 0%, rgba(2, 0, 2, 0.95) 100%);
+}
+body.theme-alucard .noise { opacity: 0.055; }
+body.theme-alucard .light-bloom {
+  background: radial-gradient(ellipse, rgba(140, 20, 35, 0.12) 0%, transparent 70%);
+}
+body.theme-alucard .orb-1 { background: #801020; opacity: 0.2; }
+body.theme-alucard .orb-2 { background: #400810; opacity: 0.15; }
+
+body.theme-alucard .scroll-progress {
+  background: linear-gradient(90deg, transparent, #801020, #f0a0a8);
+  box-shadow: 0 0 16px rgba(176, 32, 48, 0.4);
+}
+body.theme-alucard .navbar.is-scrolled {
+  background: rgba(4, 0, 2, 0.9);
+  border-bottom-color: rgba(160, 30, 45, 0.14);
+}
+body.theme-alucard .nav-indicator {
+  background: linear-gradient(90deg, #600818, #e08090);
+}
+
+body.theme-alucard .section-about .card {
+  background: linear-gradient(180deg, rgba(14, 2, 6, 0.92) 0%, rgba(4, 0, 2, 0.9) 100%);
+  border: 1px solid rgba(160, 30, 45, 0.28);
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 32px 70px rgba(0, 0, 0, 0.7);
+  animation: aluCardIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  position: relative;
+  overflow: hidden;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+@keyframes aluCardIn {
+  from { opacity: 0; transform: translateY(16px); filter: brightness(0.3); }
+  to { opacity: 1; transform: translateY(0); filter: none; }
+}
+body.theme-alucard .section-about .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 28px;
+  background: linear-gradient(180deg, #c03040, transparent);
+  animation: aluDrip 3.5s ease-in-out infinite;
+  z-index: 2;
+}
+@keyframes aluDrip {
+  0%, 100% { height: 20px; opacity: 0.5; }
+  50% { height: 36px; opacity: 1; }
+}
+
+body.theme-alucard .card-flip:hover .card {
+  border-color: rgba(200, 50, 65, 0.5);
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.75), 0 0 60px rgba(140, 20, 35, 0.25);
+}
+
+body.theme-alucard .avatar {
+  border-radius: 50%;
+  border-color: rgba(176, 32, 48, 0.6);
+  box-shadow: 0 0 0 3px rgba(80, 10, 18, 0.5), 0 0 40px rgba(160, 20, 35, 0.4);
+  width: 110px;
+  height: 110px;
+}
+body.theme-alucard .avatar-wrap {
+  width: 110px;
+  height: 110px;
+  animation: aluFloat 7s ease-in-out infinite;
+}
+@keyframes aluFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+body.theme-alucard .status-dot {
+  background: #d02030;
+  box-shadow: 0 0 14px rgba(208, 32, 48, 0.8);
+  animation: aluHeart 1.4s ease-in-out infinite;
+}
+@keyframes aluHeart {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+body.theme-alucard .name {
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+body.theme-alucard .handle {
+  color: rgba(224, 140, 150, 0.55);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+body.theme-alucard .bio {
+  color: rgba(240, 200, 205, 0.45);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+
+body.theme-alucard .tag {
+  border-radius: 0;
+  background: transparent;
+  border-color: rgba(176, 32, 48, 0.35);
+  border-width: 1px;
+  color: #e09098;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  padding: 5px 14px;
+}
+body.theme-alucard .tag:hover {
+  background: rgba(160, 20, 35, 0.25);
+  border-color: rgba(224, 80, 95, 0.55);
+  box-shadow: 0 0 18px rgba(160, 20, 35, 0.3);
+}
+body.theme-alucard .section.is-inview .tag {
+  animation: aluTagFade 0.7s ease both;
+}
+@keyframes aluTagFade {
+  from { opacity: 0; letter-spacing: 0.3em; }
+  to { opacity: 1; letter-spacing: 0.12em; }
+}
+
+body.theme-alucard .social-btn {
+  border-radius: 0;
+  background: transparent;
+  border-color: rgba(176, 32, 48, 0.3);
+}
+body.theme-alucard .social-btn:hover {
+  background: rgba(160, 20, 35, 0.3);
+  border-color: rgba(224, 80, 95, 0.55);
+  box-shadow: 0 0 24px rgba(140, 15, 30, 0.35);
+}
+
+body.theme-alucard .projects-title,
+body.theme-alucard .chars-title {
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 1.45rem;
+}
+body.theme-alucard .project-card {
+  border-radius: 2px;
+  border-color: rgba(160, 30, 45, 0.2);
+  background: rgba(8, 0, 4, 0.8);
+}
+body.theme-alucard .project-card:hover {
+  border-color: rgba(200, 50, 65, 0.4);
+  box-shadow: 0 16px 40px rgba(80, 5, 15, 0.35);
+}
+body.theme-alucard .char-preview { border-radius: 2px; }
+body.theme-alucard .chars-open-btn {
+  border-radius: 0;
+  background: transparent;
+  border-color: rgba(176, 32, 48, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+body.theme-alucard .chars-open-btn:hover {
+  background: rgba(160, 20, 35, 0.25);
+  box-shadow: 0 0 28px rgba(140, 15, 30, 0.3);
+}
+body.theme-alucard .player-fill {
+  background: linear-gradient(90deg, #600818, #b02030, #f0a0a8);
+}
+body.theme-alucard .particle { background: rgba(200, 60, 75, 0.5); }
+
+/* ===== Ambient animations · alucard gothic ===== */
+body.theme-alucard .particle {
+  animation-name: aluParticleAscend;
+  background: rgba(200, 50, 65, 0.45);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(160, 20, 35, 0.4);
+}
+@keyframes aluParticleAscend {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  15% { opacity: 0.55; }
+  100% { transform: translateY(-100vh) scale(0.2); opacity: 0; }
+}
+
+body.theme-alucard .section-about {
+  animation: aluAtmosphere 10s ease-in-out infinite;
+}
+@keyframes aluAtmosphere {
+  0%, 100% { filter: brightness(1) contrast(1); }
+  50% { filter: brightness(1.03) contrast(1.04); }
+}
+
+body.theme-alucard .projects-title::after,
+body.theme-alucard .chars-title::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, #b02030, transparent);
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+body.theme-alucard .section.is-inview .projects-title::after,
+body.theme-alucard .section.is-inview .chars-title::after {
+  width: 40%;
+  animation: aluLineBleed 4s ease-in-out infinite 1s;
+}
+@keyframes aluLineBleed {
+  0%, 100% { opacity: 0.5; width: 40%; }
+  50% { opacity: 1; width: 48%; }
+}
+
+body.theme-alucard .section.is-inview .project-card {
+  animation: aluProjectIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+body.theme-alucard .section.is-inview .project-card:nth-child(1) { animation-delay: 0.12s; }
+body.theme-alucard .section.is-inview .project-card:nth-child(2) { animation-delay: 0.24s; }
+body.theme-alucard .section.is-inview .project-card:nth-child(3) { animation-delay: 0.36s; }
+@keyframes aluProjectIn {
+  from { opacity: 0; transform: translateY(20px); filter: brightness(0.4); }
+  to { opacity: 1; transform: translateY(0); filter: none; }
+}
+
+body.theme-alucard .section.is-inview .char-preview {
+  animation: aluCharIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+body.theme-alucard .section.is-inview .char-preview:nth-child(1) { animation-delay: 0.08s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(2) { animation-delay: 0.14s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(3) { animation-delay: 0.2s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(4) { animation-delay: 0.26s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(5) { animation-delay: 0.32s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(6) { animation-delay: 0.38s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(7) { animation-delay: 0.44s; }
+body.theme-alucard .section.is-inview .char-preview:nth-child(8) { animation-delay: 0.5s; }
+@keyframes aluCharIn {
+  from { opacity: 0; filter: brightness(0.3) saturate(0.5); transform: translateY(10px); }
+  to { opacity: 1; filter: none; transform: translateY(0); }
+}
+
+body.theme-alucard .section.is-inview .social-btn {
+  animation: aluSocialIn 0.6s ease both;
+}
+body.theme-alucard .section.is-inview .social-btn:nth-child(1) { animation-delay: 0.4s; }
+body.theme-alucard .section.is-inview .social-btn:nth-child(2) { animation-delay: 0.48s; }
+body.theme-alucard .section.is-inview .social-btn:nth-child(3) { animation-delay: 0.56s; }
+body.theme-alucard .section.is-inview .social-btn:nth-child(4) { animation-delay: 0.64s; }
+body.theme-alucard .section.is-inview .social-btn:nth-child(5) { animation-delay: 0.72s; }
+@keyframes aluSocialIn {
+  from { opacity: 0; letter-spacing: 0.2em; }
+  to { opacity: 1; }
+}
+
+body.theme-alucard .nav-glow.is-visible {
+  background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(120, 15, 25, 0.45) 0%, transparent 70%);
+  animation: aluNavPulse 5s ease-in-out infinite;
+}
+@keyframes aluNavPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+
+body.theme-alucard .player.is-playing {
+  animation: aluPlayerAura 3s ease-in-out infinite;
+}
+@keyframes aluPlayerAura {
+  0%, 100% { box-shadow: 0 0 0 transparent; }
+  50% { box-shadow: 0 0 24px rgba(160, 20, 35, 0.25); }
+}
+
+body.theme-alucard .player.is-playing .player-cover {
+  box-shadow: 0 0 16px rgba(176, 32, 48, 0.45);
+}
+
+/* running text · gothic blood */
+body.theme-alucard .intro-name,
+body.theme-alucard .name,
+body.theme-alucard .projects-title,
+body.theme-alucard .chars-title,
+body.theme-alucard .loader-name .ln {
+  background-image: linear-gradient(
+    90deg,
+    #fff5f6 0%,
+    #f0a0a8 22%,
+    #b02030 45%,
+    #e08090 70%,
+    #fff5f6 100%
+  );
+}

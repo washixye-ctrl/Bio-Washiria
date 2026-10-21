@@ -1,0 +1,79 @@
+/* Character themes: the atmosphere/accent colors follow each background video. */
+/* Carthethyia: ice blue (base theme-alt), Hiyuki: sakura pink, Kurumi: crimson,
+   Roxy: violet, Sandrone: red + steel cyan. */
+body.theme-aegir {
+  --accent: #f18ab6;
+  --accent-2: #c4d8ff;
+  --glow: rgba(241, 138, 182, .38);
+}
+body.theme-aegir .scroll-progress,
+body.theme-aegir .nav-indicator,
+body.theme-aegir .player-fill {
+  background: linear-gradient(90deg, #8d9fff, #f18ab6, #ffe0ed);
+}
+body.theme-aegir .light-bloom {
+  background: radial-gradient(ellipse, rgba(241, 138, 182, .2) 0%, transparent 70%);
+}
+body.theme-aegir .orb-1 { background: #f18ab6; }
+body.theme-aegir .orb-2 { background: #8d9fff; }
+body.theme-aegir .section-about .card,
+body.theme-aegir .project-card,
+body.theme-aegir .char-preview {
+  border-color: rgba(241, 138, 182, .32);
+}
+body.theme-aegir .nav-link.active,
+body.theme-aegir .name,
+body.theme-aegir .projects-title,
+body.theme-aegir .chars-title { color: #ffd0e3; }
+
+body.theme-noir {
+  --accent: #b59aff;
+  --accent-2: #e2d7ff;
+  --glow: rgba(155, 115, 255, .4);
+}
+body.theme-noir .scroll-progress,
+body.theme-noir .nav-indicator,
+body.theme-noir .player-fill {
+  background: linear-gradient(90deg, #6250c9, #a88cff, #e1d5ff);
+}
+body.theme-noir .light-bloom {
+  background: radial-gradient(ellipse, rgba(142, 105, 255, .22) 0%, transparent 70%);
+}
+body.theme-noir .orb-1 { background: #8d65ff; }
+body.theme-noir .orb-2 { background: #4d3b99; }
+body.theme-noir .section-about .card,
+body.theme-noir .project-card,
+body.theme-noir .char-preview { border-color: rgba(155, 115, 255, .34); }
+body.theme-noir .nav-link.active,
+body.theme-noir .name,
+body.theme-noir .projects-title,
+body.theme-noir .chars-title { color: #d9caff; }
+
+body.theme-capitano {
+  --accent: #ef596b;
+  --accent-2: #9ee8ff;
+  --glow: rgba(239, 89, 107, .38);
+}
+body.theme-capitano .scroll-progress,
+body.theme-capitano .nav-indicator,
+body.theme-capitano .player-fill {
+  background: linear-gradient(90deg, #df334f, #ef596b, #9ee8ff);
+}
+body.theme-capitano .light-bloom {
+  background: radial-gradient(ellipse, rgba(239, 89, 107, .18) 0%, transparent 70%);
+}
+body.theme-capitano .orb-1 { background: #e43e58; }
+body.theme-capitano .orb-2 { background: #69cce9; }
+body.theme-capitano .section-about .card,
+body.theme-capitano .project-card,
+body.theme-capitano .char-preview { border-color: rgba(239, 89, 107, .32); }
+body.theme-capitano .nav-link.active,
+body.theme-capitano .name,
+body.theme-capitano .projects-title,
+body.theme-capitano .chars-title { color: #ffb3bd; }
+
+body.theme-alt {
+  --accent: #83b9ff;
+  --accent-2: #e0eeff;
+}
+body.theme-alt .player-fill { background: linear-gradient(90deg, #5798f5, #83b9ff, #e0eeff); }
