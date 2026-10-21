@@ -1,0 +1,59 @@
+{
+  "albums": [
+    {
+      "id": "videos",
+      "title": "Clips & Videos",
+      "description": "คลิปและวิดีโอ",
+      "items": [
+        {
+          "src": "assets/videos/Carthethyia.mp4",
+          "title": "Carthethyia"
+        },
+        {
+          "src": "assets/videos/Hiyuki.mp4",
+          "title": "Hiyuki"
+        },
+        {
+          "src": "assets/videos/Kurumi.mp4",
+          "title": "Kurumi"
+        },
+        {
+          "src": "assets/videos/Roxy.mp4",
+          "title": "Roxy"
+        },
+        {
+          "src": "assets/videos/Sandrone.mp4",
+          "title": "Sandrone"
+        }
+      ]
+    },
+    {
+      "id": "games",
+      "title": "RoV / Game",
+      "description": "ภาพจากเกม",
+      "items": [
+        {
+          "src": "images/game-1.png",
+          "title": "Game 1"
+        }
+      ]
+    },
+    {
+      "id": "chars",
+      "title": "My Luv",
+      "description": "พื้นที่อัลบั้มส่วนตัว",
+      "items": []
+    },
+    {
+      "id": "extra",
+      "title": "Partner & Scenes",
+      "description": "ผลงานและภาพบรรยากาศ",
+      "items": [
+        {
+          "src": "images/work-lightcity.png",
+          "title": "Light City"
+        }
+      ]
+    }
+  ]
+}
