@@ -9,7 +9,7 @@ resize();
 window.addEventListener('resize', resize);
 
 const stars = [];
-for (let i = 0; i < 110; i++) {
+for (let i = 0; i < (window.matchMedia('(max-width: 720px)').matches ? 28 : 55); i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
@@ -20,7 +20,11 @@ for (let i = 0; i < 110; i++) {
   });
 }
 
-function drawStars() {
+let lastFrame = 0;
+function drawStars(timestamp = 0) {
+  if (document.hidden) { requestAnimationFrame(drawStars); return; }
+  if (timestamp - lastFrame < 33) { requestAnimationFrame(drawStars); return; }
+  lastFrame = timestamp;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (const s of stars) {
     s.twinkle += 0.02;

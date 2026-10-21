@@ -10,6 +10,6 @@ function spawnParticle() {
   particlesEl.appendChild(p);
   setTimeout(() => p.remove(), 18000);
 }
-setInterval(spawnParticle, 600);
-for (let i = 0; i < 8; i++) setTimeout(spawnParticle, i * 400);
+setInterval(() => { if (!document.hidden) spawnParticle(); }, 1800);
+for (let i = 0; i < 4; i++) setTimeout(spawnParticle, i * 700);
 

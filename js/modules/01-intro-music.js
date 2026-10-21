@@ -9,7 +9,7 @@ const playerTime = document.getElementById('playerTime');
 const playerDur = document.getElementById('playerDur');
 const playerBar = document.getElementById('playerBar');
 
-music.volume = 0.24;
+music.volume = 0.42;
 let isPlaying = false;
 let entered = false;
 
