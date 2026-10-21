@@ -45,7 +45,12 @@
       "id": "chars",
       "title": "My Luv",
       "description": "พื้นที่อัลบั้มส่วนตัว",
-      "items": []
+      "items": [
+        {
+          "src": "albums/my-luv/Luv.jpg",
+          "title": "Irin My Luv"
+        }
+      ]
     },
     {
       "id": "extra",
