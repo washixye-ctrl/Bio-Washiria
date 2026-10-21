@@ -1,22 +1,18 @@
 // ========== Theme + BG + Music hotkeys ==========
 const THEME_LIST = [
-  'Carthethyia.mp4',
-  'Hiyuki.mp4',
-  'Kurumi.mp4',
-  'Asta.mp4',
-  'Sandrone.mp4'
+  'Anime1.mp4',
+  'Anime2.mp4',
+  'Asta.mp4'
 ];
 const THEME_CLIPS = {
   Numpad1: THEME_LIST[0], Digit1: THEME_LIST[0],
   Numpad2: THEME_LIST[1], Digit2: THEME_LIST[1],
-  Numpad3: THEME_LIST[2], Digit3: THEME_LIST[2],
-  Numpad4: THEME_LIST[3], Digit4: THEME_LIST[3],
-  Numpad5: THEME_LIST[4], Digit5: THEME_LIST[4]
+  Numpad3: THEME_LIST[2], Digit3: THEME_LIST[2]
 };
 const THEME_CLASSES = ['theme-noir', 'theme-alt', 'theme-capitano', 'theme-aegir', 'theme-alucard', 'theme-secret'];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let bgSwitching = false;
-window.__bgClip = 'Carthethyia.mp4';
+window.__bgClip = 'Anime1.mp4';
 window.__audioStartAt = 0;
 
 // Background videos are visuals only. Music is played exclusively by #bgMusic.
@@ -107,11 +103,9 @@ function fadeVolume(audio, to, ms) {
 function applyThemeClasses(clip) {
   document.body.classList.remove(...THEME_CLASSES);
   const themeByClip = {
-    'Carthethyia.mp4': 'theme-alt',       // ice blue
-    'Hiyuki.mp4': 'theme-aegir',          // sakura pink / blue
-    'Kurumi.mp4': 'theme-alucard',        // black / crimson
-    'Roxy.mp4': 'theme-noir',             // violet / midnight
-    'Sandrone.mp4': 'theme-capitano'      // red / steel blue
+    'Anime1.mp4': 'theme-alt',       // ice blue
+    'Anime2.mp4': 'theme-aegir',          // sakura pink / blue
+    'Asta.mp4': 'theme-alucard',        // black / crimsom
   };
   document.body.classList.add(themeByClip[clip] || 'theme-alt');
 
@@ -247,6 +241,6 @@ document.addEventListener('keydown', (event) => {
 });
 
 // default theme on load
-applyThemeClasses('Carthethyia.mp4');
-applyMeta('Carthethyia.mp4');
+applyThemeClasses('Anime1.mp4');
+applyMeta('Anime1.mp4');
 
