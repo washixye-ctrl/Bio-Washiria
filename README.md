@@ -452,3 +452,33 @@ No license is implied unless a `LICENSE` file is added. If you want others to re
 *Personal portfolio · Visual experiments · Music · Projects*
 
 </div>
+
+
+## 🗃️ Albums — separate media folders
+
+Album media is managed from the `albums/` directory, separately from the site's UI code.
+
+```text
+albums/
+├── manifest.json       # List of albums and files shown on the website
+├── README.md           # How to add media
+├── clips/              # Put .mp4 clips here
+├── games/              # Put game images here
+├── scenes/             # Put project/scene media here
+└── my-luv/             # Personal album; empty by default
+```
+
+Supported file types: **`.mp4`, `.png`, `.jpg`, `.jpeg`, `.gif`** and `.webp` images.
+
+To add a file, place it in the relevant folder and add its path to `albums/manifest.json`. Example:
+
+```json
+{
+  "src": "albums/games/my-game.gif",
+  "title": "My Game"
+}
+```
+
+Add that object to the desired album's `items` array. The site detects `.mp4` as video and the supported image extensions as images. You do not need to change JavaScript for routine additions.
+
+**Why use a manifest?** Vercel serves this as a static website, and browser JavaScript cannot automatically enumerate the files in a deployed directory. `manifest.json` is the list the gallery reads, so new files must be registered there.
