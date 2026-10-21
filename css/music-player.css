@@ -1,0 +1,236 @@
+/* ===== MUSIC PLAYER ===== */
+/* Music player — อยู่ใน navbar ด้านขวา · ย่อพับเมื่อไม่ได้เล่น */
+.player {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  min-width: 0;
+  max-width: 48px;
+  overflow: hidden;
+  transition:
+    max-width 0.45s var(--ease-emphasized),
+    gap 0.35s var(--ease-out),
+    padding 0.35s var(--ease-out),
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.player[hidden] {
+  display: none !important;
+}
+
+/* ขยายเมื่อกำลังเล่น */
+.player.is-playing {
+  max-width: 360px;
+  gap: 8px;
+  padding: 5px 10px 5px 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.player-cover {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(167, 139, 250, 0.4);
+  flex-shrink: 0;
+}
+
+/* ซ่อนรายละเอียดเมื่อพับ */
+.player-info,
+.player .viz,
+.player-progress-wrap {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    max-width 0.4s var(--ease-emphasized),
+    margin 0.3s ease;
+}
+
+.player.is-playing .player-info {
+  opacity: 1;
+  max-width: 110px;
+  pointer-events: auto;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.player.is-playing .viz {
+  opacity: 1;
+  max-width: 40px;
+  pointer-events: none;
+}
+
+.player.is-playing .player-progress-wrap {
+  opacity: 1;
+  max-width: 130px;
+  pointer-events: auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 70px;
+}
+
+.player-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-sub {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-time,
+.player-dur {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 24px;
+}
+
+.player-bar {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-width: 40px;
+}
+
+.player-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  border-radius: 999px;
+  transition: width 0.1s linear;
+}
+
+.player-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.25);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background 0.2s, transform 0.25s var(--ease-spring);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ตอนพับ: ปุ่มซ้อนทับปก หรืออยู่ข้าง */
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ตอนพับ: กดที่ทั้งแถบเพื่อเล่นได้ · แสดงปุ่มตอน hover */
+.player:not(.is-playing) {
+  cursor: pointer;
+}
+
+.player:not(.is-playing):hover .player-btn,
+.player:not(.is-playing):focus-within .player-btn {
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(167, 139, 250, 0.55);
+}
+
+.player.is-playing .player-btn {
+  position: relative;
+  right: auto;
+  top: auto;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.player-btn:hover {
+  background: rgba(167, 139, 250, 0.45);
+}
+
+/* Audio visualizer bars */
+.viz {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.5px;
+  height: 16px;
+  width: 36px;
+  flex-shrink: 0;
+  opacity: 0.35;
+  transition: opacity 0.35s var(--ease-out);
+}
+
+.player.is-playing .viz {
+  opacity: 1;
+}
+
+.viz-bar {
+  width: 2.5px;
+  height: 20%;
+  min-height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, #e9e0ff 0%, #a78bfa 45%, #7c3aed 100%);
+  transform-origin: bottom center;
+  transition: height 0.05s linear;
+  box-shadow: 0 0 6px rgba(167, 139, 250, 0.35);
+}
+
+.player-cover {
+  transition: transform 0.8s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+
+.player.is-playing .player-cover {
+  animation: coverSpin 14s linear infinite;
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.45);
+}
+
+@keyframes coverSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body.theme-alt .viz-bar { background: linear-gradient(180deg, #e0f0ff, #8ab0e0 50%, #4a7ec0); }
+body.theme-noir .viz-bar { background: linear-gradient(180deg, #f0c0c8, #c04050 50%, #801828); }
+body.theme-capitano .viz-bar { background: linear-gradient(180deg, #b8dcff, #3a88c8 50%, #1a5080); }
+body.theme-alucard .viz-bar { background: linear-gradient(180deg, #f0a0a8, #b02030 50%, #701018); }
+body.theme-aegir .viz-bar { background: linear-gradient(180deg, #a0f0e8, #20a8b8 50%, #106070); }
+
+@media (max-width: 720px) {
+  .viz { width: 28px; gap: 1px; }
+  .viz-bar { width: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player.is-playing .player-cover { animation: none; }
+  .viz-bar { transition: none; }
+}
+
