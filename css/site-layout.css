@@ -275,3 +275,20 @@
   opacity: 1;
 }
 
+
+
+/* ===== Sticky floating navigation: stays attached to viewport while scrolling ===== */
+.navbar {
+  position: fixed !important;
+  top: 14px;
+  left: max(12px, env(safe-area-inset-left));
+  right: max(12px, env(safe-area-inset-right));
+  z-index: 1000;
+  will-change: transform;
+}
+.navbar.is-scrolled { top: 10px; }
+.nav-glow { position: fixed; z-index: 999; }
+@media (max-width: 720px) {
+  .navbar { top: 8px; left: 8px; right: 8px; }
+  .navbar.is-scrolled { top: 6px; }
+}
