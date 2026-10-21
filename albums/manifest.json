@@ -12,27 +12,27 @@
       "description": "ภาพจากเกม",
       "items": [
         {
-          "src": "games/R1.jpg",
+          "src": "albums/games/R1.jpg",
           "title": "Rov"
         },
         {
-          "src": "games/R2.jpg",
+          "src": "albums/games/R2.jpg",
           "title": "Rov"
         },
         {
-          "src": "games/R3.jpg",
+          "src": "albums/games/R3.jpg",
           "title": "Rov"
         },
         {
-          "src": "games/R4.jpg",
+          "src": "albums/games/R4.jpg",
           "title": "Rov"
         },
         {
-          "src": "games/R5.jpg",
+          "src": "albums/games/R5.jpg",
           "title": "Rov"
         },
         {
-          "src": "games/R6.jpg",
+          "src": "albums/games/R6.jpg",
           "title": "Rov"
         }
       ]
