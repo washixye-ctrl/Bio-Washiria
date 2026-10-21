@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Washi · Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/background.css" />
+  <link rel="stylesheet" href="css/intro-loader.css" />
+  <link rel="stylesheet" href="css/site-layout.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/albums-lightbox.css" />
+  <link rel="stylesheet" href="css/music-player.css" />
+  <link rel="stylesheet" href="css/responsive-themes-effects.css" />
+  <link rel="stylesheet" href="css/themes/theme-222.css" />
+  <link rel="stylesheet" href="css/themes/theme-noir.css" />
+  <link rel="stylesheet" href="css/themes/theme-capitano.css" />
+  <link rel="stylesheet" href="css/themes/theme-alucard.css" />
+  <link rel="stylesheet" href="css/themes/theme-aegir.css" />
+  <link rel="stylesheet" href="css/themes/theme-secret.css" />
+  <link rel="stylesheet" href="css/themes/theme-character-colors.css" />
+</head>
+<body class="locked">
+  <!-- Silent video backgrounds; all audible sound comes from the music player below. -->
+  <div class="video-bg" aria-hidden="true">
+    <video id="bgVideo" class="bg-layer is-active" autoplay muted loop playsinline>
+      <source src="assets/videos/Carthethyia.mp4" type="video/mp4" />
+    </video>
+    <video id="bgVideoB" class="bg-layer" muted loop playsinline>
+      <source src="" type="video/mp4" />
+    </video>
+  </div>
+  <div class="overlay"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+  <div class="noise"></div>
+  <canvas id="stars"></canvas>
+  <div class="particles" id="particles"></div>
+
+  <!-- Light atmosphere (from profile) -->
+  <div class="light-fx" aria-hidden="true">
+    <div class="light-bloom"></div>
+    <div class="light-orb orb-1"></div>
+    <div class="light-orb orb-2"></div>
+  </div>
+
+  <!-- ========== INTRO / ENTER GATE ========== -->
+  <div class="intro" id="intro">
+    <div class="intro-content">
+      <div class="intro-avatar-wrap">
+        <img src="images/photo.gif" alt="Washi" class="intro-avatar" />
+        <span class="intro-ring"></span>
+      </div>
+      <h1 class="intro-name">Washi</h1>
+      <p class="intro-tag">WASHI · PORTFOLIO</p>
+      <p class="intro-hint"><span class="intro-dot"></span> click to enter</p>
+    </div>
+  </div>
+
+  <!-- ========== LOADING SCREEN (หลังกด Enter) ========== -->
+  <div class="loader" id="loader" hidden>
+    <div class="loader-vignette"></div>
+    <div class="loader-scanlines"></div>
+    <div class="loader-grid"></div>
+    <div class="loader-glow"></div>
+    <div class="loader-pulse-ring"></div>
+    <div class="loader-pulse-ring loader-pulse-2"></div>
+    <div class="loader-pulse-ring loader-pulse-3"></div>
+    <div class="loader-particles" id="loaderParticles"></div>
+    <div class="loader-hex" id="loaderHex" aria-hidden="true"></div>
+    <div class="loader-corners" aria-hidden="true">
+      <span class="lc lc-tl"></span>
+      <span class="lc lc-tr"></span>
+      <span class="lc lc-bl"></span>
+      <span class="lc lc-br"></span>
+    </div>
+    <div class="loader-side loader-side-l" aria-hidden="true">
+      <span class="loader-tick"></span>
+      <span class="loader-side-text" id="loaderSideL">0x00</span>
+    </div>
+    <div class="loader-side loader-side-r" aria-hidden="true">
+      <span class="loader-tick"></span>
+      <span class="loader-side-text" id="loaderSideR">SYNC</span>
+    </div>
+    <div class="loader-inner">
+      <div class="loader-avatar-wrap">
+        <div class="loader-orbit">
+          <span class="loader-orbit-dot"></span>
+        </div>
+        <div class="loader-orbit loader-orbit-b">
+          <span class="loader-orbit-dot loader-orbit-dot-b"></span>
+        </div>
+        <span class="loader-ring"></span>
+        <span class="loader-ring loader-ring-2"></span>
+        <span class="loader-ring loader-ring-3"></span>
+        <img src="images/photo.gif" alt="Washi" class="loader-avatar" />
+      </div>
+      <div class="loader-text-block">
+        <p class="loader-label"><span class="loader-label-dot"></span> SYSTEM BOOT</p>
+        <h2 class="loader-name" id="loaderName">
+          <span class="ln">W</span><span class="ln">A</span><span class="ln">S</span><span class="ln">H</span><span class="ln">I</span>
+        </h2>
+        <div class="loader-line"><span class="loader-line-fill"></span></div>
+      </div>
+      <div class="loader-steps" id="loaderSteps" aria-hidden="true">
+        <span class="loader-step"></span>
+        <span class="loader-step"></span>
+        <span class="loader-step"></span>
+        <span class="loader-step"></span>
+        <span class="loader-step"></span>
+      </div>
+      <p class="loader-status" id="loaderStatus">กำลังเข้าสู่ระบบ...</p>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar">
+          <div class="loader-fill" id="loaderFill"></div>
+        </div>
+        <span class="loader-pct" id="loaderPct">0%</span>
+      </div>
+      <p class="loader-theme-tag" id="loaderThemeTag"></p>
+    </div>
+    <div class="loader-flash" id="loaderFlash"></div>
+  </div>
+
+  <!-- Sticky chrome (outside .site so position:fixed works vs viewport) -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <nav class="navbar" id="navbar" hidden>
+    <a href="#about" class="nav-brand">
+      <img src="images/photo.gif" alt="Washi" />
+      <span>Washi</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
+      <a href="#about" class="nav-link active" data-section="about">About</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+      <a href="#chars" class="nav-link" data-section="chars">Characters</a>
+    </div>
+    <div class="nav-right">
+      <div class="player" id="player" hidden>
+        <img src="images/photo.gif" alt="" class="player-cover" />
+        <div class="player-info">
+          <div class="player-title" id="playerTitle">Swim</div>
+          <div class="player-sub" id="playerSub">instrumental · WASHI</div>
+        </div>
+        <div class="viz" id="viz" aria-hidden="true"></div>
+        <div class="player-progress-wrap">
+          <span class="player-time" id="playerTime">0:00</span>
+          <div class="player-bar" id="playerBar">
+            <div class="player-fill" id="playerFill"></div>
+          </div>
+          <span class="player-dur" id="playerDur">0:00</span>
+        </div>
+        <button class="player-btn" id="musicBtn" title="Play / Pause">
+          <i class="fas fa-pause"></i>
+        </button>
+      </div>
+      <div class="nav-socials">
+        <a href="https://www.instagram.com/washi_.library.__" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1F2HrdUYfz/" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@washi_x" target="_blank" rel="noopener" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-glow" id="navGlow" hidden></div>
+
+  <!-- ========== MAIN SITE ========== -->
+  <div class="site" id="site">
+    <!-- ABOUT -->
+    <section id="about" class="section section-about">
+      <div class="container">
+        <div class="card-flip" id="profileCard" role="button" tabindex="0" aria-label="คลิกเพื่อพลิกการ์ด">
+          <div class="card-inner">
+            <!-- ด้านหน้า -->
+            <div class="card card-face card-front">
+              <div class="avatar-wrap">
+                <img src="images/photo.gif" alt="Profile" class="avatar" />
+                <span class="status-dot" title="Online"></span>
+              </div>
+              <h1 class="name">Washi</h1>
+              <p class="handle">@Washi</p>
+              <p class="bio">Gamer · Dev · streamer<br></p>
+              <div class="tags">
+                <span class="tag">Rov</span>
+                <span class="tag">Discord</span>
+                <span class="tag">Bot</span>
+                <span class="tag">My Luv</span>
+              </div>
+              <div class="socials">
+                <a href="https://www.instagram.com/washi_.library.__" target="_blank" rel="noopener" class="social-btn ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1F2HrdUYfz/" target="_blank" rel="noopener" class="social-btn fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@washi_x" target="_blank" rel="noopener" class="social-btn tt" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="mailto:mumufuyuta@gmail.com" class="social-btn email" title="Email"><i class="fas fa-envelope"></i></a>
+              </div>
+              <p class="card-flip-hint"><i class="fas fa-sync-alt"></i> คลิกเพื่อพลิก</p>
+            </div>
+            <!-- ด้านหลัง · QR -->
+            <div class="card card-face card-back">
+              <p class="card-back-title">ช่องทางการโอนเงิน</p>
+              <div class="qr-wrap">
+                <img src="images/qr-promptpay.png" alt="QR PromptPay" class="qr-img" />
+              </div>
+              <p class="card-back-wallet">กสิกรไทย</p>
+              <p class="card-back-acc">เลขบัญชี: <strong>194-8-78456-0</strong></p>
+              <p class="card-back-name">ชื่อบัญชี: วัชรพล ศรียี่ทอง</p>
+              <p class="card-flip-hint"><i class="fas fa-sync-alt"></i> คลิกเพื่อพลิกกลับ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section section-projects">
+      <div class="projects-wrap">
+        <h2 class="projects-title">My Projects</h2>
+        <p class="projects-sub">คลิกการ์ดเพื่อเปิดอัลบั้ม · กดภาพเพื่อดูเต็มจอ</p>
+        <div class="projects-grid">
+          <article class="project-card" data-album="videos" role="button" tabindex="0">
+            <div class="project-img" style="background-image: url('images/vid-1.1.jpg');">
+              <div class="project-img-overlay"><i class="fas fa-play-circle"></i></div>
+            </div>
+            <div class="project-info">
+              <h3>Clips &amp; Bot</h3>
+              <p>บอททั้งหมด · กดเพื่อเปิดอัลบั้ม</p>
+            </div>
+          </article>
+          <article class="project-card" data-album="games" role="button" tabindex="0">
+            <div class="project-img" style="background-image: url('images/game-1.png');">
+              <div class="project-img-overlay"><i class="fas fa-gamepad"></i></div>
+            </div>
+            <div class="project-info">
+              <h3>Rov / Game</h3>
+              <p>ภาพจากเกม · กดเพื่อเปิดอัลบั้ม</p>
+            </div>
+          </article>
+          <article class="project-card" data-album="extra" role="button" tabindex="0">
+            <div class="project-img" style="background-image: url('images/work-lightcity.png');">
+              <div class="project-img-overlay"><i class="fas fa-city"></i></div>
+            </div>
+            <div class="project-info">
+              <h3>Partner &amp; Discord</h3>
+              <p>เซิฟเวอร์ที่ทำอยู่ · Discord</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARACTERS (featured from pro) -->
+    <section id="chars" class="section section-chars">
+      <div class="chars-wrap">
+        <h2 class="chars-title">My Luv</h2>
+        <p class="chars-sub">แฟนสุดที่รัก · กดเพื่อเปิดอัลบั้มเต็ม</p>
+        <div class="chars-grid" id="charsPreview">
+          <!-- filled by JS -->
+        </div>
+        <button class="chars-open-btn" data-album="chars" id="openCharsAlbum">
+          <i class="fas fa-book-open"></i> เปิดอัลบั้มแหนทั้งหมด
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Album Modal -->
+  <div class="album-modal" id="albumModal" hidden>
+    <div class="album-backdrop" id="albumBackdrop"></div>
+    <div class="album-panel">
+      <div class="album-header">
+        <h3 id="albumTitle">Album</h3>
+        <button class="album-close" id="albumClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="album-body" id="albumBody"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+    <p class="lightbox-count" id="lightboxCount"></p>
+  </div>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Carthethyia.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Classic scripts are kept in their original order to preserve the shared global scope. -->
+  <script src="js/modules/01-intro-music.js"></script>
+  <script src="js/modules/02-theme-background-hotkeys.js"></script>
+  <script src="js/modules/03-stars.js"></script>
+  <script src="js/modules/04-particles.js"></script>
+  <script src="js/modules/05-navigation.js"></script>
+  <script src="js/modules/06-albums.js"></script>
+  <script src="js/modules/07-lightbox.js"></script>
+  <script src="js/modules/08-characters.js"></script>
+  <script src="js/modules/09-profile-card.js"></script>
+  <script src="js/modules/10-cursor-spotlight.js"></script>
+  <script src="js/modules/11-card-reflection.js"></script>
+  <script src="js/modules/12-audio-visualizer.js"></script>
+</body>
+</html>
